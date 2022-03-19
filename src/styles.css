@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --maincolor: rgba(241, 242, 245, 0.8);
+    --maincolor-darkmode: rgb(26,28,37, 1);
+
+    --menubarcolor: rgb(255, 255, 255, 0.2);
+    --menubarcolor-darkmode: rgb(26,28,37, 0.2);
+    --menubarbordercolor: rgba(245, 243, 243, 0.3);
+    
+    --hovercolor: rgba(161, 161, 161, 0.5);
+    --hovercolor-darkmode: rgba(161, 161, 161, 0.5);
+
+    --textcolor: rgb(26,28,37, 1);
+    --textcolor-darkmode: rgba(220, 221, 229, 1);
+
+    --popupcolor: rgb(220,221,229);
+    --popupcolor-darkmode: rgb(42,46,57);
+
+    --popupmenubarcolor: rgb(173, 173, 173);
+    --popupmenubarcolor-darkmode: rgb(36, 36, 36);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+} 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
