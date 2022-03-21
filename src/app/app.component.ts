@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
-import { app } from './interfaces/app.app';
+import { Component, OnInit } from '@angular/core';
+import { app } from './files/app.app';
+import { shareDataService } from './files/shareDataService';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor() {
-
+export class AppComponent implements OnInit{
+  enDarkmode : Boolean = false;
+  constructor(public shareDataService:shareDataService) { }  
+  ngOnInit(): void {
+    this.shareDataService.currentColorTheme.subscribe(x =>    
+      this.enDarkmode = x)    
   }
   title = 'my-os2';
-  enDarkmode : Boolean = true;
+  //enDarkmode : Boolean = globals.enDarkmode;
   enSettings : Boolean = false;
   apps : app[] = [
     {appId: 0, appName: "finder", description: "", iconUrl: "/assets/menubar/finder.png"},
@@ -28,9 +33,5 @@ export class AppComponent {
   IconMenubarClick(app : app) {
     console.log(app);
     if(app.appName = "settings") this.enSettings = !this.enSettings;
-    
   }
-  
-
-
 }

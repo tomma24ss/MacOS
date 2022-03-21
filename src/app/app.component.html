@@ -19,10 +19,10 @@
     </div>
   </nav>
   <section>
-    <app-settings *ngIf="enSettings" [enDarkmode]="enDarkmode"></app-settings>
+    <app-settings *ngIf="enSettings"></app-settings>
   </section>
   
   <nav [ngClass]="'nav_bottom'">
-    <img [src]="app.iconUrl" (click)="IconMenubarClick(app)" *ngFor="let app of apps; index as i;">
+    <img [src]="app.iconUrl" (click)="IconMenubarClick(app)"  *ngFor="let app of apps; index as i;">
   </nav>
 </div>

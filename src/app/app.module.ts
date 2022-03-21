@@ -7,6 +7,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
+import { shareDataService } from './files/shareDataService';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +20,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [shareDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

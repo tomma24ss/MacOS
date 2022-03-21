@@ -35,6 +35,7 @@ nav div {
 .organge {
    background-color: orange;
 }
-input {
-   display: inline-block;
+.body mat-slide-toggle {
+   margin-top: 2.5vh;
+   margin-left: 1.5vw;
 }
