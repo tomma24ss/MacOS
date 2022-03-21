@@ -11,7 +11,7 @@ export class AppComponent {
 
   }
   title = 'my-os2';
-  enDarkmode : Boolean = false;
+  enDarkmode : Boolean = true;
   enSettings : Boolean = false;
   apps : app[] = [
     {appId: 0, appName: "finder", description: "", iconUrl: "/assets/menubar/finder.png"},

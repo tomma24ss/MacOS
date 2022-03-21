@@ -18,8 +18,9 @@
       <div><i class="fa-solid fa-align-left"></i></div>
     </div>
   </nav>
-
-  <app-settings *ngIf="enSettings"></app-settings>
+  <section>
+    <app-settings *ngIf="enSettings" [enDarkmode]="enDarkmode"></app-settings>
+  </section>
   
   <nav [ngClass]="'nav_bottom'">
     <img [src]="app.iconUrl" (click)="IconMenubarClick(app)" *ngFor="let app of apps; index as i;">
