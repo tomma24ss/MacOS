@@ -1,4 +1,4 @@
-<div  [ngClass]="{main: true, darkmode: enDarkmode}">
+<div  [ngClass]="{main: true, darkmode: enDarkmode}" >
   <nav [ngClass]="{darkmode: enDarkmode}">
     <div [ngClass]="'left-nav'">
       <div><i class="fa-brands fa-apple"></i></div>
@@ -19,7 +19,11 @@
     </div>
   </nav>
   <section>
-    <app-settings *ngIf="enSettings"></app-settings>
+    <app-settings *ngIf="enSettings"
+    [width]="300" 
+    [height]="200" 
+    [left]="150" 
+    [top]="60">></app-settings>
   </section>
   
   <nav [ngClass]="'nav_bottom'">

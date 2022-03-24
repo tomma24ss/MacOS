@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { app } from './files/app.app';
+import { app, settingsAppScale } from './files/interfaces';
 import { shareDataService } from './files/shareDataService';
-
 
 @Component({
   selector: 'app-root',
@@ -9,15 +8,16 @@ import { shareDataService } from './files/shareDataService';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  enSettings : Boolean = false;
   enDarkmode : Boolean = false;
   constructor(public shareDataService:shareDataService) { }  
   ngOnInit(): void {
     this.shareDataService.currentColorTheme.subscribe(x =>    
-      this.enDarkmode = x)    
+      this.enDarkmode = x)
+    this.shareDataService.currentSettings.subscribe(x =>
+      this.enSettings = x)
   }
   title = 'my-os2';
-  //enDarkmode : Boolean = globals.enDarkmode;
-  enSettings : Boolean = false;
   apps : app[] = [
     {appId: 0, appName: "finder", description: "", iconUrl: "/assets/menubar/finder.png"},
     {appId: 1, appName: "safari", description: "", iconUrl: "/assets/menubar/safari.png"},
@@ -32,6 +32,6 @@ export class AppComponent implements OnInit{
 
   IconMenubarClick(app : app) {
     console.log(app);
-    if(app.appName = "settings") this.enSettings = !this.enSettings;
+    if(app.appName = "settings") this.enSettings = !this.enSettings;3
   }
 }
