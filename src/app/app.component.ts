@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { app, settingsAppScale } from './files/interfaces';
+import { app } from './files/interfaces';
 import { shareDataService } from './files/shareDataService';
-
+import { appController } from './files/appController';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +10,7 @@ import { shareDataService } from './files/shareDataService';
 export class AppComponent implements OnInit{
   enSettings : Boolean = false;
   enDarkmode : Boolean = false;
-  constructor(public shareDataService:shareDataService) { }  
+  constructor(public shareDataService:shareDataService,public appController:appController) { }  
   ngOnInit(): void {
     this.shareDataService.currentColorTheme.subscribe(x =>    
       this.enDarkmode = x)
@@ -18,17 +18,7 @@ export class AppComponent implements OnInit{
       this.enSettings = x)
   }
   title = 'my-os2';
-  apps : app[] = [
-    {appId: 0, appName: "finder", description: "", iconUrl: "/assets/menubar/finder.png"},
-    {appId: 1, appName: "safari", description: "", iconUrl: "/assets/menubar/safari.png"},
-    {appId: 2, appName: "notes", description: "", iconUrl: "/assets/menubar/notes.png"},
-    {appId: 3, appName: "maps", description: "", iconUrl: "/assets/menubar/maps.png"},
-    {appId: 4, appName: "music", description: "", iconUrl: "/assets/menubar/music.png"},
-    {appId: 5, appName: "appletv", description: "", iconUrl: "/assets/menubar/appletv.png"},
-    {appId: 6, appName: "settings", description: "System preferences", iconUrl: "/assets/menubar/settings.png"},
-    {appId: 7, appName: "store", description: "", iconUrl: "/assets/menubar/store.png"},
-    {appId: 8, appName: "dustbin", description: "", iconUrl: "/assets/menubar/dustbin.png"}
-  ]
+  apps : app[] = this.appController.apps;
 
   IconMenubarClick(app : app) {
     console.log(app);

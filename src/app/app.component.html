@@ -19,14 +19,11 @@
     </div>
   </nav>
   <section>
-    <app-settings *ngIf="enSettings"
-    [width]="300" 
-    [height]="200" 
-    [left]="150" 
-    [top]="60">></app-settings>
+    <app-settings *ngIf="enSettings" >></app-settings>
   </section>
-  
-  <nav [ngClass]="'nav_bottom'">
-    <img [src]="app.iconUrl" (click)="IconMenubarClick(app)"  *ngFor="let app of apps; index as i;">
-  </nav>
+  <footer>
+    <nav [ngClass]="'nav_bottom'">
+      <img [src]="app.iconUrl" (click)="IconMenubarClick(app)"  *ngFor="let app of apps; index as i;">
+    </nav>
+  </footer>
 </div>

@@ -7,6 +7,7 @@
     background-size: cover;
     color: var(--textcolor);
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 .main.darkmode {
@@ -50,6 +51,7 @@ nav.darkmode {
     height: 6vh;
     bottom: 1vh;
     border-radius: 0.5vh;
+    display: flex;
     position: fixed;
     justify-content: center;
     background-color: var(--menubarcolor);
@@ -60,11 +62,17 @@ nav.darkmode {
 .nav_bottom img:nth-last-child(2),.nav_bottom img:nth-last-child(3),.nav_bottom img:nth-child(2){
     border-left: 1px solid var(--menubarbordercolor);
 }
+.main section {
+    width: 100vw;
+    height: 97vh;
+    display: flex;
+}
+footer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
 app-settings {
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    height: 60vh;
-    width: 50vw;
+    height: max-content;
+    width: max-content;
 }

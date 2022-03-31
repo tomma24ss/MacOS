@@ -3,8 +3,9 @@ export interface app {
     appName: string;
     description: string;
     iconUrl: string;
+    scales: appScales|undefined;
 }
-export interface settingsAppScale {
+export interface appScales {
     width: number;
     height: number;
     left: number;

@@ -10,6 +10,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FormsModule } from '@angular/forms';
 import { shareDataService } from './files/shareDataService';
+import { appController } from './files/AppController';
+import { ResizableModule } from 'angular-resizable-element';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,10 @@ import { shareDataService } from './files/shareDataService';
     MatSlideToggleModule,
     FormsModule
   ],
-  providers: [shareDataService],
+  providers: [
+    shareDataService,
+    appController
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
