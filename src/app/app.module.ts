@@ -8,14 +8,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { shareDataService } from './files/shareDataService';
-import { appController } from './files/AppController';
-import { ResizableModule } from 'angular-resizable-element';
+import { appController } from './files/appController';
+import { TerminalComponent } from './terminal/terminal.component';
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
+    TerminalComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,9 @@ import { ResizableModule } from 'angular-resizable-element';
     MatSliderModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
+
   ],
   providers: [
     shareDataService,

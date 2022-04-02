@@ -2,20 +2,20 @@ import { BehaviorSubject } from "rxjs";
 
 export class shareDataService {
 
-    public enDarkmode = new BehaviorSubject<Boolean>(!new Boolean);
-    public currentColorTheme = this.enDarkmode.asObservable();
+    private _enDarkmode = new BehaviorSubject<Boolean>(false);
+    public getCurrentColorTheme = this._enDarkmode.asObservable();
 
-    public enSettings = new BehaviorSubject<Boolean>(!new Boolean);
-    public currentSettings = this.enSettings.asObservable();
+    //private _enSettings = new BehaviorSubject<Boolean>(false);
+    //public getCurrentSettings = this._enSettings.asObservable();
+
+    
 
     constructor () {}
     
-    changeColorTheme(value : Boolean) {
-        this.enDarkmode.next(value);
+    public set enDarkmode(value : Boolean) {
+        this._enDarkmode.next(value);
     }
+    
 
-    enableSettings(value : Boolean) {
-        this.enSettings.next(value);
-    }
 
 }

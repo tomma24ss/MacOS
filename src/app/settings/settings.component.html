@@ -1,5 +1,5 @@
-<div #box [ngClass]="'main'">
-    <nav [ngClass]="{darkmode: enDarkmode}">
+<div #box [ngClass]="'main'" cdkDrag>
+    <nav [ngClass]="{darkmode: enDarkmode}" cdkDragHandle>
         <div class="dot red" (click)="Close()"></div>
         <div class="dot organge"></div>
         <div class="dot green"></div>

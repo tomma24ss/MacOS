@@ -73,6 +73,10 @@ footer {
     justify-content: center;
 }
 app-settings {
-    height: max-content;
-    width: max-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 97vh;
 }

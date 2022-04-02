@@ -1,0 +1,55 @@
+.main {
+    background-color: var(--popupcolor);
+    display: flex;
+    flex-direction: column;
+ 
+ 
+    min-width: 22vw;
+    min-height: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ nav {
+    width: 100%;
+    background-color: var(--popupmenubarcolor);
+    display: flex;
+    align-items: center;
+    cursor: default;
+    height: 3vh;
+    font-size: 2vh;
+ }
+ nav.darkmode {
+    background-color: var(--popupcolor-darkmode);
+ }
+ nav .dot {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    display: inline-block;
+ }
+ nav div {
+    margin-left: 0.5vw;
+ }
+ nav div.name {
+    margin-left: 6vw;
+ }
+ nav div i {
+    margin-top: auto;
+    margin-bottom: auto;
+ }
+ .red {
+    background-color: red;
+ }
+ .green {
+    background-color: green;
+ }
+ .organge {
+    background-color: orange;
+ }
+ .body {
+    margin: 1vh 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 2vh;
+    color: var(--maincolor-darkmode);
+ }

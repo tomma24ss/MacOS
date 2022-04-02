@@ -19,7 +19,8 @@
     </div>
   </nav>
   <section>
-    <app-settings *ngIf="enSettings" >></app-settings>
+    <app-settings *ngIf="getAppEnabledValue('settings')" ></app-settings>
+    <app-terminal *ngIf="getAppEnabledValue('terminal')"></app-terminal>
   </section>
   <footer>
     <nav [ngClass]="'nav_bottom'">

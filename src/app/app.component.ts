@@ -2,26 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { app } from './files/interfaces';
 import { shareDataService } from './files/shareDataService';
 import { appController } from './files/appController';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  enSettings : Boolean = false;
+  apps : app[];
   enDarkmode : Boolean = false;
   constructor(public shareDataService:shareDataService,public appController:appController) { }  
   ngOnInit(): void {
-    this.shareDataService.currentColorTheme.subscribe(x =>    
-      this.enDarkmode = x)
-    this.shareDataService.currentSettings.subscribe(x =>
-      this.enSettings = x)
+    this.shareDataService.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
+    
+    this.appController.getCurrentApps.subscribe(x => this.apps = x);
   }
   title = 'my-os2';
-  apps : app[] = this.appController.apps;
 
   IconMenubarClick(app : app) {
-    console.log(app);
-    if(app.appName = "settings") this.enSettings = !this.enSettings;3
+    this.appController.enableApp(app, !app.enabled);
+  }
+  getAppEnabledValue(value : String) : Boolean|undefined {
+    return this.appController.getAppEnabledValue(value);
   }
 }

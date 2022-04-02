@@ -4,6 +4,7 @@ export interface app {
     description: string;
     iconUrl: string;
     scales: appScales|undefined;
+    enabled: Boolean;
 }
 export interface appScales {
     width: number;
