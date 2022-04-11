@@ -66,6 +66,7 @@ nav.darkmode {
     width: 100vw;
     height: 97vh;
     display: flex;
+    
 }
 footer {
     width: 100vw;
@@ -74,6 +75,20 @@ footer {
 }
 app-settings {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 97vh;
+}
+app-terminal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 97vh;
+}
+app-safari {
     display: flex;
     justify-content: center;
     align-items: center;

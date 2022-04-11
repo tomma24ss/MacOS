@@ -18,14 +18,20 @@ export class appController {
         {appId: 8, appName: "store", description: "", iconUrl: "/assets/menubar/store.png", scales: undefined, enabled: false},
         {appId: 9, appName: "dustbin", description: "", iconUrl: "/assets/menubar/dustbin.png", scales: undefined, enabled: false}
     ]);
-    public get getCurrentApps() {
+    public get appsAsObservable() {
         return this._apps.asObservable();
+    }
+    public get apps() {
+        return this._apps.getValue();
     }
     public set apps(apps : app[]) {
         this._apps.next(apps);
     }
     public enableApp(app : app, value : Boolean) {
-        this._apps.getValue().map((a:app) => a.enabled = a.appName === app.appName ? value : a.enabled);
+        this._apps.next(this._apps.getValue().map((a:app) => {
+            a.enabled = a.appName === app.appName ? value : a.enabled;
+            return a;
+        }));
     }
     public getApp(value:String):app {
         return this._apps.getValue().find((a:app) => a.appName === value)!;

@@ -1,4 +1,5 @@
 .main {
+   position: absolute;
    background-color: var(--popupcolor);
    display: flex;
    flex-direction: column;
@@ -6,8 +7,6 @@
 
    min-width: 22vw;
    min-height: 20vh;
-   margin-left: auto;
-   margin-right: auto;
 }
 nav {
    width: 100%;

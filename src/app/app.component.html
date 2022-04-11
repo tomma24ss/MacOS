@@ -21,6 +21,7 @@
   <section>
     <app-settings *ngIf="getAppEnabledValue('settings')" ></app-settings>
     <app-terminal *ngIf="getAppEnabledValue('terminal')"></app-terminal>
+    <app-safari *ngIf="getAppEnabledValue('safari')"></app-safari>
   </section>
   <footer>
     <nav [ngClass]="'nav_bottom'">

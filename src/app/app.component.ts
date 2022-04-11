@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.shareDataService.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
     
-    this.appController.getCurrentApps.subscribe(x => this.apps = x);
+    this.appController.appsAsObservable.subscribe(x => this.apps = x);
   }
   title = 'my-os2';
 

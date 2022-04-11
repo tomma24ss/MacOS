@@ -20,7 +20,10 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@types/gapi": "^0.0.41",
     "angular-resizable-element": "^5.0.0",
+    "ng-terminal": "^5.0.0-beta.2",
+    "primeng": "^13.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
