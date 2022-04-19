@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { appController } from '../files/appController';
-import { shareDataService } from '../files/shareDataService';
+import { Component, OnInit } from '@angular/core';
+import { AppService} from '../Services/app.service';
+import { SharedVariablesService } from '../Services/shared-variables.service';
 
 @Component({
   selector: 'app-safari',
@@ -10,14 +10,12 @@ import { shareDataService } from '../files/shareDataService';
 export class SafariComponent implements OnInit  {
 
   enDarkmode : Boolean = false;
-  src: string = "https://www.youtube.com/"; // <- YOUR URL
-  @ViewChild('iframe') iframe: ElementRef;
-  constructor(public shareDataService:shareDataService, public appController:appController) {}
+  constructor(public sharedVars:SharedVariablesService, public appService:AppService) {}
 
   ngOnInit(): void {
+    this.sharedVars.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
   }
   Close() {
-    //this.shareDataService.enSettings = false;
-    this.appController.enableApp(this.appController.getApp("safari"), false);
+    this.appService.enableApp(this.appService.getApp("safari"), false);
   }
 }

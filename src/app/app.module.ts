@@ -6,22 +6,28 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {TerminalModule} from 'primeng/terminal';
-
-import { shareDataService } from './files/shareDataService';
-import { appController } from './files/appController';
+import { HttpClientModule} from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 import { TerminalComponent } from './terminal/terminal.component';
 import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SafariComponent } from './safari/safari.component';
+import { MessagesComponent } from './messages/messages.component';
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
     TerminalComponent,
     SafariComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,12 +38,17 @@ import { SafariComponent } from './safari/safari.component';
     MatSlideToggleModule,
     FormsModule,
     DragDropModule,
-    TerminalModule
-
+    TerminalModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
-    shareDataService,
-    appController
   ],
   bootstrap: [AppComponent]
 })

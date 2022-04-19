@@ -47,6 +47,24 @@
      background-color: orange;
   }
   .body {
-     margin: 1vh;
+     margin: 0;
      color: var(--maincolor-darkmode);
   }
+  .example-stepper {
+   margin-top: 8px;
+ }
+ 
+.longinput {
+   width: 100%;
+}
+
+.send-response {
+   display: flex;
+   margin: 3vw;
+}
+.send-response p {
+   margin-left: 5vw;
+}
+mat-step div {
+   margin: 1vw;
+}

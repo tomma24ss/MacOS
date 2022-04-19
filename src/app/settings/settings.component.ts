@@ -1,6 +1,6 @@
 import { Component, OnInit,AfterViewInit, NgModule, Input, HostListener, ViewChild, ElementRef } from '@angular/core';
-import { appController } from '../files/appController';
-import { shareDataService } from '../files/shareDataService';
+import { AppService } from '../Services/app.service';
+import { SharedVariablesService } from '../Services/shared-variables.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -9,18 +9,18 @@ import { shareDataService } from '../files/shareDataService';
 export class SettingsComponent implements OnInit {
 
   enDarkmode : Boolean = false;
-  constructor(public shareDataService:shareDataService, public appController:appController) { }
+  constructor(public sharedVars:SharedVariablesService, public appService:AppService) { }
   
   ngOnInit(): void {
-    this.shareDataService.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
+    this.sharedVars.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
   }
 
   changeColorTheme() {
     console.log("Called");
-    this.shareDataService.enDarkmode = this.enDarkmode;
+    this.sharedVars.enDarkmode = this.enDarkmode;
   }
   Close() {
     //this.shareDataService.enSettings = false;
-    this.appController.enableApp(this.appController.getApp("settings"), false);
+    this.appService.enableApp(this.appService.getApp("settings"), false);
   }
 }

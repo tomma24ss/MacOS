@@ -1,0 +1,62 @@
+<div #box [ngClass]="'main'" cdkDrag>
+    <nav [ngClass]="{darkmode: enDarkmode}" cdkDragHandle>
+        <div class="dot red" (click)="Close()"></div>
+        <div class="dot organge"></div>
+        <div class="dot green"></div>
+        <div class="name">Message anonymous</div>
+    </nav>
+    <div class="body">
+          <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="firstFormGroup">
+              <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Enter country code :</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Code</mat-label>
+                  <input type="number" matInput formControlName="firstCtrl"  maxlength="3" placeholder="+" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext>Next<mat-icon>arrow_right</mat-icon></button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+              <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Enter Phone number (Without +):</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Number</mat-label>
+                  <input #input type="number" matInput formControlName="secondCtrl" maxlength="9" placeholder="........."required>
+                  <mat-hint align="end">{{input.value?.length || 0}}/9</mat-hint>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious><mat-icon>arrow_left</mat-icon>Back</button>
+                  <button mat-button matStepperNext>Next<mat-icon>arrow_right</mat-icon></button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="thirdFormGroup">
+                <form [formGroup]="thirdFormGroup">
+                  <ng-template matStepLabel>Enter message:</ng-template>
+                  <mat-form-field appearance="fill" class="longinput">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput formControlName="thirdCtrl" required></textarea>
+                  </mat-form-field>
+                  <div>
+                    <button mat-button matStepperPrevious><mat-icon>arrow_left</mat-icon>Back</button>
+                    <button mat-button matStepperNext>Next<mat-icon>arrow_right</mat-icon></button>
+                  </div>
+                </form>
+              </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Send</ng-template>
+              <div class="send-response">
+                <button mat-raised-button color="primary" (click)="Send()">Send message</button>
+                <p>{{response}}</p>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious><mat-icon>arrow_left</mat-icon>Back</button>
+                <button mat-button (click)="stepper.reset(); response=''"><mat-icon>delete</mat-icon></button>
+              </div>
+            </mat-step>
+          </mat-stepper>
+    </div>
+</div>

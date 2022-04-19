@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@types/gapi": "^0.0.41",
+    "algoliasearch": "^4.13.0",
+    "angular-instantsearch": "^4.1.0",
     "angular-resizable-element": "^5.0.0",
     "ng-terminal": "^5.0.0-beta.2",
     "primeng": "^13.3.2",

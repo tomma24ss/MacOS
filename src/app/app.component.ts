@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { app } from './files/interfaces';
-import { shareDataService } from './files/shareDataService';
-import { appController } from './files/appController';
+import { SharedVariablesService } from './Services/shared-variables.service';
+import { AppService} from './Services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -11,18 +11,18 @@ import { appController } from './files/appController';
 export class AppComponent implements OnInit{
   apps : app[];
   enDarkmode : Boolean = false;
-  constructor(public shareDataService:shareDataService,public appController:appController) { }  
+  constructor(public sharedVars:SharedVariablesService,public appService:AppService) { }  
   ngOnInit(): void {
-    this.shareDataService.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
+    this.sharedVars.getCurrentColorTheme.subscribe(x => this.enDarkmode = x);
     
-    this.appController.appsAsObservable.subscribe(x => this.apps = x);
+    this.appService.appsAsObservable.subscribe(x => this.apps = x);
   }
   title = 'my-os2';
 
   IconMenubarClick(app : app) {
-    this.appController.enableApp(app, !app.enabled);
+    this.appService.enableApp(app, !app.enabled);
   }
   getAppEnabledValue(value : String) : Boolean|undefined {
-    return this.appController.getAppEnabledValue(value);
+    return this.appService.getAppEnabledValue(value);
   }
 }
